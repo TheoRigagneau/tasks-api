@@ -6,4 +6,4 @@ jobs:
     steps:
       - run: echo "Hello World"
       - run: echo "Branche ${{ github.ref_name }}"
-      - run: echo "Auteur ${{ `github.actor`}}"
+      - run: echo "Auteur ${{ github.actor }}"
