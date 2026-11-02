@@ -10,7 +10,7 @@ et vous savez lire un run GitHub Actions, y compris quand il échoue.
 > 📸 **Pour votre dossier :** ce TP contient 7 captures d'écran à garder, repérées par « 📸 TP1-n ».
 > La liste complète et les questions à traiter sont dans `docs/DOSSIER.md`.
 
-## Avant de commencer
+## Avant de commencer 
 
 - [ ] Le script de vérification affiche « 0 en échec »
 - [ ] Vous avez créé **votre** dépôt `tasks-api` depuis le modèle et vous l'avez cloné
