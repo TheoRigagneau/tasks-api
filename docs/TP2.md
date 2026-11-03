@@ -31,6 +31,9 @@ cache, protection de la branche `main`, travail à deux sur un même dépôt et 
 
 **Questions :** Quelle différence entre un linter (flake8) et un formateur (black) ? Pourquoi séparer `lint` et `test` en deux jobs ?
 
+Flake8 détecte les erreurs et problèmes de style. Black formate automatiquement le code.
+Pour identifier plus facilement l'origine d'une erreur et exécuter les vérifications indépendamment.
+
 ---
 
 ## Partie 2 : Matrix, cache et artefact (35 min)
@@ -48,6 +51,10 @@ cache, protection de la branche `main`, travail à deux sur un même dépôt et 
 
 **Questions :** Pourquoi tester sur plusieurs versions de Python ? Que gagne-t-on avec le cache ? Un artefact, c'est quoi ?
 
+Pour vérifier la compatibilité du projet avec plusieurs versions.
+La CI est plus rapide car les dépendances déjà téléchargées sont réutilisées.
+Un fichier produit par la CI et conservé pour pouvoir être téléchargé.
+
 ---
 
 ## Partie 3 : Protéger la branche main (15 min)
@@ -64,6 +71,7 @@ cache, protection de la branche `main`, travail à deux sur un même dépôt et 
 
 **Question :** Pourquoi interdire de pousser directement sur `main` ?
 
+Pour éviter d'intégrer du code non testé ou défectueux directement dans main.
 ---
 
 ## Partie 4 : Pull request croisée et conflit (45 min)
@@ -95,6 +103,8 @@ git push
 
 **Questions :** Pourquoi Git ne peut-il pas résoudre ce conflit seul ? Qu'est-ce qui a vérifié le code après la résolution ?
 
+Les deux branches modifient la même partie du fichier, donc Git ne sait pas quelle version choisir.
+La CI GitHub Actions avec les tests et le lint.
 ---
 
 ## Partie 5 : Un secret dans le pipeline (20 min)
@@ -114,6 +124,10 @@ git push
 
 **Questions :** Pourquoi GitHub masque-t-il le secret ? Que se passe-t-il si on le commite dans le dépôt ? Secret ou variable : comment choisir ?
 
+Pour éviter qu'une donnée sensible apparaisse dans les logs.
+Il peut être récupéré par d'autres personnes. Il faut immédiatement le révoquer et le remplacer.
+Secret pour les données sensibles ; variable pour les données non sensibles.
+
 ---
 
 ## Partie 6 : Trois pipelines à réparer (30 min)
@@ -124,6 +138,11 @@ Dans le dossier `pipelines-a-reparer/` : trois workflows (A, B, C) avec **un bug
 > 📸 **TP2-11 :** la liste des runs montrant vos trois pipelines réparés au vert.
 
 **Questions :** Pour chaque pipeline : quel était le bug, comment l'avez-vous trouvé, comment l'éviter à l'avenir ?
+
+10A : Erreur d'indentation : via vscode : en codant mieux
+10B : Oublie de la ligne - uses: actions/checkout@v6 : car on voyaint qu'il y avait un problème dans le pip install dans les logs puis en regardant les autres pipelines : reprendre à chaque fois une base sûr
+10C : oublie des guillemets dans les valeurs de python : via l'error The version '3.1' not found : apprendre la logique
+
 
 ---
 
