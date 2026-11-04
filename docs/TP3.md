@@ -47,16 +47,7 @@ Contrôles :
 
 ## Partie 2 : Docker Compose (20 min)
 
-Créez `docker-compose.yml` avec un service `api` qui :
-- construit l'image du dossier courant ;
-- publie le port 8000 ;
-- définit la variable d'environnement `APP_VERSION` à `local`.
-
-```bash
-docker compose up --build
-```
-
-Vérifiez que `/version` répond `local`, puis `docker compose down`.
+-
 
 > 📸 **TP3-2 :** `docker compose up` en cours et le `curl` sur `/version`.
 
