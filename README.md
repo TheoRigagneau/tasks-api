@@ -1,4 +1,4 @@
-![CI](https://github.com/TheoRigagneau/tasks-api/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/7/8gagneau/tasks-api/actions/workflows/ci.yml/badge.svg)
 
 # tasks-api : fil rouge du cours GitOps & CI/CD
 

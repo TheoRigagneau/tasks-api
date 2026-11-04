@@ -10,4 +10,6 @@ Pour chaque pipeline (A, B, C) :
 4. Pour le dossier : une capture du run en échec, une capture du run réparé, et 3 lignes d'explication
    (quel était le bug, comment vous l'avez trouvé, comment l'éviter).
 
+
+
 Supprimez ces workflows de test une fois l'exercice terminé, pour ne pas polluer votre dépôt.

@@ -56,7 +56,8 @@ puis recommencez le `git push`.
 > 📸 **TP1-1 :** le run « Hello » réussi, avec l'étape qui affiche la branche et l'auteur **dépliée**.
 
 **Questions (à traiter dans le dossier) :** Combien de temps a duré le run ? Où voit-on les logs de chaque étape ?
-Le run a duré 8sec. 
+Le run a duré 8sec.
+Les logs de chaque étape sont visibles dans l'onglet Actions de github
 
 > Indice : la structure minimale est `name`, `on`, `jobs`, puis `runs-on` et `steps`.
 
@@ -92,6 +93,8 @@ Le run a duré 8sec.
 > 📸 **TP1-4 :** le run vert qui suit la correction.
 
 **Questions (à traiter dans le dossier) :** Quel test a échoué ? À quelle ligne ? Qu'est-ce qui a permis de le trouver rapidement ?
+Le test qui a échoué est le code de status à la ligne 29 du testapy
+Grâce aux pytest qui me renvoie ou se trouve les erreurs
 
 ---
 
@@ -111,6 +114,7 @@ Le run a duré 8sec.
 > 📸 **TP1-7 :** le `README.md` sur GitHub avec le badge affiché.
 
 **Question (à traiter dans le dossier) :** Pourquoi attend-on que la CI soit verte avant de fusionner ?
+Pour pas implementer
 
 ---
 
