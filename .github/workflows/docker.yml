@@ -210,7 +210,7 @@ jobs:
         with:
           repository: theorigagneau/tasks-config  # TROU 3 : votre compte GitHub (minuscules)
           token: ${{ secrets.CONFIG_REPO_TOKEN }}
-          path: k8s
+          path: config
 
       - name: Mettre à jour la version de l'image
         run: bash scripts/set-image-tag.sh config/k8s/deployment.yaml "${VERSION#v}"
