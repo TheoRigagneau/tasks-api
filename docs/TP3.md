@@ -43,15 +43,30 @@ Contrôles :
 
 **Questions :** Différence entre une image et un conteneur ? À quoi sert le `.dockerignore` ?
 
+Image c'est un template et conteneur c'est une instance de cette image
+dockerignore : ignorer certains fichiers
+
 ---
 
 ## Partie 2 : Docker Compose (20 min)
 
--
+Créez `docker-compose.yml` avec un service `api` qui :
+
+- construit l'image du dossier courant ;
+- publie le port 8000 ;
+- définit la variable d'environnement `APP_VERSION` à `local`.
+
+```bash
+docker compose up --build
+```
+
+Vérifiez que `/version` répond `local`, puis `docker compose down`.
 
 > 📸 **TP3-2 :** `docker compose up` en cours et le `curl` sur `/version`.
 
 **Question :** Que gagne-t-on à décrire le lancement dans un fichier plutôt que dans une longue commande ?
+
+Plus facile à lire, et plus simple d'utilisation
 
 ---
 
@@ -79,7 +94,8 @@ Poussez sur `main`, puis allez voir votre profil GitHub → **Packages**.
 > 📸 **TP3-4 :** la page du package `tasks-api` avec son tag `sha-…`.
 
 **Questions :** Pourquoi `build` attend-il `test` ? Pourquoi éviter le tag `latest` en production ?
-
+Pour vérifier que ça fonctionne avant de build
+Parce qu'il peut changer à chaque nouvelle publication
 ---
 
 ## Partie 4 : Une release par un tag Git (30 min)
@@ -105,7 +121,7 @@ docker run --rm -p 8000:8000 ghcr.io/<votre-compte-minuscules>/tasks-api:0.1.0
 > 📸 **TP3-6 :** `docker run` de l'image **téléchargée depuis GHCR** et `curl /version` qui répond `0.1.0`.
 
 **Question :** Quel est l'avantage d'une image versionnée par rapport à « le code de ma machine » ?
-
+Permet de retrouver la version de l'app qui a été construite
 ---
 
 ## Partie 5 : Environnements et approbation (25 min)
@@ -124,6 +140,8 @@ Créez `v0.1.1` (nouveau tag) : le pipeline passe sur staging, puis **attend vot
 
 **Questions :** À quoi sert un test de fumée ? Pourquoi demander une approbation humaine avant la production ?
 
+Afin de vérifier que tout fonctionne avant de l'implementer
+
 ---
 
 ## Partie 6 : Sécurité de l'image (10 min)
@@ -135,6 +153,7 @@ Créez `v0.1.1` (nouveau tag) : le pipeline passe sur staging, puis **attend vot
 > 📸 **TP3-8 :** la sortie de la commande `id` dans le conteneur.
 
 **Question :** Pourquoi ne pas exécuter une application en root dans un conteneur ?
+Car ça augmente la possibilité d'avoir une faille dans l'application
 
 ---
 

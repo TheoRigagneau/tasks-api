@@ -132,6 +132,10 @@ Ce que fait la commande macOS / Linux, de gauche à droite :
 
 **Questions :** Avec vos mots : c'est quoi un pod ? Un deployment ? Pourquoi un `namespace` ? (Aidez-vous du vocabulaire ci-dessus et de `kubectl get pods -n argocd`.)
 
+Pod c'est un conteneur
+Deployment : Le nombre de pods qu'on veut
+Namespace : un espace pour ranger les ressources
+
 ---
 
 ## Partie 2 : Le dépôt de configuration (35 min)
@@ -206,6 +210,10 @@ Puis, dans un 3ᵉ terminal : `curl http://localhost:8081/version` (Windows : `c
 
 **Question :** Pourquoi sépare-t-on le dépôt de l'application et le dépôt de configuration ? (Pensez à ce qui déclenche la CI et à qui a le droit de modifier quoi.)
 
+Pour amméliorer la sécurité ainsi que controler les changements apportés plus facilement
+
+
+
 ---
 
 ## Partie 3 : Le GitOps en action (25 min)
@@ -252,7 +260,8 @@ Refresh dans Argo CD : le nombre de pods revient à 2.
 > 📸 **TP4-7 :** l'historique des commits de `tasks-config` avec le `revert`, et le retour à 2 pods.
 
 **Questions :** Que signifie `selfHeal` ? Pourquoi le retour arrière est-il simple en GitOps ?
-
+SelfHeal c'est un mécanisme qui permet de detecter lorsque qu'un environnement Kubernetes ne correspond plus à l'état souhaité défini dans Git.
+Car on peut utiliser Revert
 ---
 
 ## Partie 4 : La chaîne complète (60 min)
@@ -356,6 +365,8 @@ kubectl port-forward svc/tasks-api -n tasks 8081:80
 > 📸 **TP4-10 :** `/version` qui répond `0.2.0`.
 
 **Questions :** Résumez en 5 lignes le chemin d'un `git tag` jusqu'au pod. Qui pousse (push) et qui tire (pull) ? Quelle différence avec un déploiement CI/CD « classique » ?
+Création du tag -> Ci le test -> publicatino de l'image -> mise à jour du tag de l'image -> argo voit le changement -> les nouveaux pods se lancent
+Là, il y a deux dépots
 
 ---
 

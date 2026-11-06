@@ -114,7 +114,7 @@ Grâce aux pytest qui me renvoie ou se trouve les erreurs
 > 📸 **TP1-7 :** le `README.md` sur GitHub avec le badge affiché.
 
 **Question (à traiter dans le dossier) :** Pourquoi attend-on que la CI soit verte avant de fusionner ?
-Pour pas implementer
+Pour pas implementer une erreur sur la main
 
 ---
 
